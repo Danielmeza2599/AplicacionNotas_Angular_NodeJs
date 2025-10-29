@@ -1,0 +1,88 @@
+/*  
+    * Proeycto: Aplicacion de Notas para sitio Web
+    * Archivo: welcome.component.scss, estilos de SCSS
+    * Fecha: 29/10/2025
+    * Autor: Daniel Meza
+*/
+
+/*  IMPORTS Fonts and Icons - Google Font and Bootstrap*/
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap'); /* Cormorant Garamond - Google Font*/
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap'); /* Lora - Google Font*/
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");/* Iconos de Bootstrap */
+
+
+/* ---------------------------------------------------- 
+    ROOT VARIABLES
+
+    Definición de variables SCSS para colores y fuentes.
+    
+    Colores
+        Naranja Cempasúchil (#FF9A00)
+        Rosa Mexicano / Buganvilla (#E4007C)
+        Morado Místico (#8A2BE2)
+        Amarillo Calavera (#F7DC6F)
+        Negro Noche / Obsidiana (#1C1C1C)
+        Blanco Hueso (#F5F5DC)
+
+    Font Text
+        Cormorant Garamond: Titulos y encabezados
+        Lora: Cuerpo de Texto
+---------------------------------------------------- */
+
+
+// ============== TYPOGRAPHY ==============
+$font-family: (
+  base: 'Inter, system-ui, sans-serif',
+  mono: 'Monaco, Consolas, monospace'
+);
+
+// ============== COLORES ==============
+$colors: (
+    text-primary: #2c3e50,
+    text-secondary: #7f8c8d,
+    bg-primary: #ecf0f1,
+    primary: #3498db,
+    secondary: #2ecc71
+);
+
+
+/* --- Titulo del Navbar ---*/
+.navbar-brand{
+    // Font
+    font-family: map-get($font-family, base);
+    font-size: 1.5rem;
+    font-weight: bold;
+    // Color
+    color: map-get($colors, text-primary);
+    h6{
+        // Font
+        font-family: map-get($font-family, base);
+        // Color
+        color:  map-get($colors, text-primary);
+    }
+}
+
+/* --- Boton responisvo al colapso -- */
+.navbar-toggler{
+    //Color
+    background-color:  map-get($colors, text-primary);
+    color: map-get($colors, text-primary);
+}
+
+/* --- Items del navbar --- */
+.nav-item{
+    // Font
+    font-family: map-get($font-family, base);
+    // Color
+    color: map-get($colors, text-primary);
+    a.nav-link{
+        // Font
+        font-family: map-get($font-family, base);
+        // Color
+        color: map-get($colors, text-primary);
+    }
+}
+
+body{
+    color: map-get($colors, text-primary);
+}

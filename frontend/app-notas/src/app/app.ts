@@ -4,10 +4,24 @@ import { NavbarwelcomeComponent } from "./layout/navbars/navbarwelcome/navbarwel
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarwelcomeComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
   protected readonly title = signal('app-notas');
+
+  misMenuItems: any[] = [
+    { name: 'Home', route: '/'}
+  ];
+
+  clickLogin(){
+    // TODO = Armando
+    console.log(`Mostrar formulario de Login`);
+  }
+
+  clickSignUp(){
+    // TODO = Tocayo
+    console.log(`Mostrar formulario de registro`);
+  }
 }
