@@ -1,0 +1,165 @@
+<div class="register-container">
+  <div class="register-card">
+    <div class="register-header">
+      <h2>Crear Cuenta</h2>
+      <p>Únete a nuestra comunidad</p>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+      <!-- Nombre y Apellido -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">Nombre</label>
+          <input
+            type="text"
+            id="firstName"
+            formControlName="firstName"
+            [class.error]="hasError('firstName')"
+            placeholder="Ingresa tu nombre"
+          />
+
+          @if (firstNameError()) {
+          <div class="error-message">
+            <span>{{ firstNameError() }}</span>
+          </div>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Apellido</label>
+          <input
+            type="text"
+            id="lastName"
+            formControlName="lastName"
+            [class.error]="hasError('lastName')"
+            placeholder="Ingresa tu apellido"
+          />
+
+          @if (lastNameError()) {
+          <div class="error-message">
+            <span>{{ lastNameError() }}</span>
+          </div>
+          }
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Correo Electrónico</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          [class.error]="hasError('email')"
+          placeholder="tu&#64;email.com"
+        />
+
+        @if (emailError()) {
+        <div class="error-message">
+          <span>{{ emailError() }}</span>
+        </div>
+        }
+      </div>
+
+      <!-- Contraseña -->
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <div class="password-input-container">
+          <input
+            [type]="passwordVisible() ? 'text' : 'password'"
+            id="password"
+            formControlName="password"
+            [class.error]="hasError('password')"
+            placeholder="Crea una contraseña segura"
+          />
+          <button
+            type="button"
+            class="toggle-password"
+            (click)="togglePasswordVisibility()"
+            tabindex="-1"
+          >
+            <i class="icon">{{ passwordVisible() ? '👁️' : '👁️‍🗨️' }}</i>
+          </button>
+        </div>
+
+        @if (passwordError()) {
+        <div class="error-message">
+          <span>{{ passwordError() }}</span>
+        </div>
+        }
+      </div>
+
+      <!-- Confirmar Contraseña -->
+      <div class="form-group">
+        <label for="confirmPassword">Confirmar Contraseña</label>
+        <div class="password-input-container">
+          <input
+            [type]="confirmPasswordVisible() ? 'text' : 'password'"
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            [class.error]="hasError('confirmPassword')"
+            placeholder="Repite tu contraseña"
+          />
+          <button
+            type="button"
+            class="toggle-password"
+            (click)="toggleConfirmPasswordVisibility()"
+            tabindex="-1"
+          >
+            <i class="icon">{{ confirmPasswordVisible() ? '👁️' : '👁️‍🗨️' }}</i>
+          </button>
+        </div>
+
+        @if (confirmPasswordError()) {
+        <div class="error-message">
+          <span>{{ confirmPasswordError() }}</span>
+        </div>
+        }
+      </div>
+
+      <!-- Términos y Condiciones -->
+      <div class="checkbox-group">
+        <div class="checkbox mb-3">
+          <label> 
+            <input type="checkbox" value="remember-me" /> 
+              <span> Acepto los <a href="#" class="link">términos y condiciones</a> y la
+            <a href="#" class="link">política de privacidad</a> </span> </label>
+        </div>
+      </div>
+       
+      <!-- <div class="form-group checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" formControlName="terms" />
+          <span class="checkmark">
+            <svg class="check-icon" viewBox="0 0 24 24">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+            </svg>
+          </span>
+          Acepto los <a href="#" class="link">términos y condiciones</a> y la
+          <a href="#" class="link">política de privacidad</a>
+        </label> -->
+
+        <!-- @if (termsError()) {
+        <div class="error-message">
+          <span>{{ termsError() }}</span>
+        </div>
+        }
+      </div> -->
+
+      <!-- Botón de Registro -->
+      <button
+        type="submit"
+        class="register-btn"
+        [class.loading]="submitted() && registerForm.invalid"
+      >
+        Crear Cuenta
+      </button>
+
+      <!-- Enlace a Login -->
+      <div class="login-link">
+        ¿Ya tienes una cuenta?
+        <a (click)="login()" class="link" style="cursor: pointer">Inicia sesión</a>
+      </div>
+    </form>
+  </div>
+</div>

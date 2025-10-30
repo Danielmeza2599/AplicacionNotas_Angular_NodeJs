@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router'; // 1. ¡Importar el Router!
+import { Router } from '@angular/router'; //¡Importar el Router!
 
 @Component({
   selector: 'app-login',
@@ -24,6 +24,10 @@ export class LoginComponent {
     // que le corresponde `HomeComponent` y lo mostrará
     // en el `<router-outlet>`.
     this.router.navigate(['/home']);
-    
+  }
+
+  registro(){
+    console.log('Botón de registro presionado');
+    this.router.navigate(['/registro']);
   }
 }

@@ -1,28 +1,23 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router'; // ¡Importar el Router!
 
 @Component({
   selector: 'app-navbarwelcome',
+  standalone: true,
   imports: [],
   templateUrl: './navbarwelcome.component.html',
   styleUrl: './navbarwelcome.component.scss',
 })
 export class NavbarwelcomeComponent {
-  /* Exponer entradas y salidas del comonente */
-  // INPUTS
-  @Input() menuItems: any[] =[];
-  @Input() loginLable: string = 'Login';
-  @Input() signUpLabel: string = 'SignUp';
+  private router = inject(Router);
 
-  // OUTPUTS
-  @Output() _onClickLogin = new EventEmitter<void>
-  @Output() _onClickSignUp = new EventEmitter<void>
-
-
-  onClickLogin() {
-    this._onClickLogin.emit();
+  login() {
+    console.log('Ingresando al login');//Pruebas
+    this.router.navigate(['/login']);// Redirigir al login
   }
-
-  onClickSignUp() {
-    this._onClickSignUp.emit();
+  
+  signup() {
+    console.log('Ingresando al registro');//Pruebas
+    this.router.navigate(['/registro']);// Redirigir al registro
   }
 }
