@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+// ============== TYPOGRAPHY ==============
+$font-family: (
+  base: 'Inter, system-ui, sans-serif',
+  mono: 'Monaco, Consolas, monospace'
+);
+
+// ============== COLORES ==============
+$colors: (
+    text-primary: #2c3e50,
+    text-secondary: #7f8c8d,
+    bg-primary: #ecf0f1,
+    primary: #3498db,
+    secondary: #2ecc71
+);
+
+body{
+    background-color: map-get($colors, bg-primary);
+}

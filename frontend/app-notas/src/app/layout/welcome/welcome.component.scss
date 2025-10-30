@@ -39,12 +39,33 @@ $font-family: (
 // ============== COLORES ==============
 $colors: (
     text-primary: #2c3e50,
-    text-secondary: #7f8c8d,
+    text-secondary: #e4eff0,
     bg-primary: #ecf0f1,
     primary: #3498db,
-    secondary: #2ecc71
+    secondary: #2ecc71,
+    // Botones CAT
+    bg-button-primary: #234794,
+    bg-button-secondary: #e9ebee
 );
 
+/* --- Contedor de todo el Navbar --- */
+.navbar-expand-lg{
+    margin: 0;
+    padding: 0;
+}
+
+/* --- imagen dentro del Navbar ---*/ 
+.d-inline-block{
+    height: 45px; /* Ajustar la altura de la imagen según sea necesario */
+    width: auto; /* Mantiene la proporción de la imagen */
+    margin-right: 5px; /* Espacio entre la imagen y el texto */
+}
+    
+
+
+.container-fluid{
+    background-color: map-get($colors, bg-primary);
+}
 
 /* --- Titulo del Navbar ---*/
 .navbar-brand{
@@ -65,24 +86,45 @@ $colors: (
 /* --- Boton responisvo al colapso -- */
 .navbar-toggler{
     //Color
-    background-color:  map-get($colors, text-primary);
-    color: map-get($colors, text-primary);
+    background-color:  map-get($colors, bg-button-primary);
+    color: map-get($colors, text-secondary);
 }
 
 /* --- Items del navbar --- */
 .nav-item{
-    // Font
-    font-family: map-get($font-family, base);
-    // Color
-    color: map-get($colors, text-primary);
+    
     a.nav-link{
+        // Propiedades
+        display: flex;
+        margin: 4px;
+        border-radius: 16px;
         // Font
         font-family: map-get($font-family, base);
+        font-weight: bold;
         // Color
-        color: map-get($colors, text-primary);
+        color: map-get($colors, text-secondary);
+        background-color: map-get($colors, bg-button-primary);
+        
+        transition: transform 0.2s ease, transform 0.2s ease-out; /* Transición suave para el efecto */
+
+        /* Efecto al presionar botones*/
+        &:hover {
+            // Font
+            font-weight: bold;
+            // Color
+            background-color: map-get($colors, bg-button-secondary); 
+            color: map-get($colors, text-primary); /* Color de texto para que contraste */
+            // Propiedades
+            transform: scale(1.03); /* Efecto de agrandamiento al pasar el mouse */
+            border-radius: 15px; /* Bordes redondeados */
+            border: solid 1px map-get($colors,bg-button-primary);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Un efecto de sombra adicional
+        }
     }
 }
 
-body{
+
+body, :host{
     color: map-get($colors, text-primary);
+    background-color: map-get($colors, bg-primary);
 }
